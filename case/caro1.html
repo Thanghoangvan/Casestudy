@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="tictactoe.css" rel="stylesheet">
+  <script src="caro2.js"></script>
+</head>
+
+<body class="body" id="body">
+  <canvas id="mycanvas" height="100px" width="400px" style="border:1px solid"></canvas>
+<div class="title" id="title1" onmouseover="changeBack()">Tic Tac Toe Game</div>
+<div class="reset">
+    <button class="reset1" onclick="resetGame()" id="01">Start</button>
+</div>
+</body>
+</html>
+<script>
+    let clickcount=0;
+    let count=0;
+   var listBrand = [
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+  
+]
+       
+
+for (let i = 0; i < listBrand.length; ++i) {
+    for(let j=0;j<listBrand[i].length;j++){
+  var btn = document.createElement('button');
+  var text = document.createTextNode(listBrand[i]);
+  btn.classList.add("playtic")
+//   div.insertBefore(btn,p)
+  btn.addEventListener("click",function(){
+    check(this)
+  })
+  document.body.appendChild(btn)
+  
+}
+document.write("<br>")
+// btn.classList.add("row")
+}
+function check(playtic){
+    if(clickcount%2==0){
+     playtic.innerText="O"
+     playtic.classList.add("obtn")
+     playtic.classList.add("background1")
+     
+        }
+        else{
+            playtic.innerText="X"
+            playtic.classList.add("xbtn")
+            playtic.classList.add("background2")
+        }
+     playtic.setAttribute("disabled","disabled")//vo_hieu_hoa_nut_do class.setAttribute(name,value),
+        clickcount++
+    }
+    if(clickcount==16){
+      alert("Game is finish")
+    }
+//     function resetGame(){
+// if(!confirm("Do you want to reset the game?")){
+//   return;
+// }
+// else{
+//   playtic.innerText=""
+//   let btns=document.getElementsByClassName()
+//   for(const element in )
+//   playtic.classList.remove("obtn");
+//   playtic.classList.remove("xbtn");
+//   playtic.classList.remove("background1");
+//   playtic.classList.remove("background2");
+//   clickcount=0;
+// }
+//     }
+
+
+</script>
