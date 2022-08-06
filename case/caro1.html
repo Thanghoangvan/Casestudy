@@ -119,9 +119,10 @@ else{
  
   }}
   function checkwin2(playtic){
-    debugger;
+
     for(i=0;i<listBrand.length;i++){
   for(j=0;j<listBrand[i].length;j++){
+    debugger;
     if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
     (checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true))
     { 
@@ -129,6 +130,7 @@ else{
     window.location.href="OIP.jpg"
       break;
       }
+     
      else if ((checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true) ||
     (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true))
     { 
@@ -138,6 +140,14 @@ else{
       }
       else if ((checko[i][j] === true) && (checko[i+1][j+1] === true) && (checko[i+2][j+2] === true) ||
     (checkx[i][j] === true) && (checkx[i+1][j+1] === true) && (checkx[i+2][j+2] === true))
+    { 
+      
+    window.location.href="OIP.jpg"
+      break;
+      }
+    
+      else if ((checko[i][j] === true) && (checko[i+1][j-1] === true) && (checko[i+2][j-2] === true) ||
+    (checkx[i][j] === true) && (checkx[i+1][j-1] === true) && (checkx[i+2][j-2] === true))
     { 
       
     window.location.href="OIP.jpg"
