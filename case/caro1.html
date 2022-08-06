@@ -20,63 +20,131 @@
 <script>
     let clickcount=0;
     let count=0;
-   var listBrand = [
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-    [0,0,0,0],
-  
-]
+   var listBrand = [[],[],[],[],]
+    var checkx= [[],[],[],[],]
+    var checko= [[],[],[],[],]
        
 
-for (let i = 0; i < listBrand.length; ++i) {
-    for(let j=0;j<listBrand[i].length;j++){
+for (let i = 0; i <listBrand.length; ++i) {
+    for(let j=0;j<4;j++){
   var btn = document.createElement('button');
-  var text = document.createTextNode(listBrand[i]);
-  btn.classList.add("playtic")
-//   div.insertBefore(btn,p)
-  btn.addEventListener("click",function(){
-    check(this)
-  })
-  document.body.appendChild(btn)
   
+ btn.classList.add("playtic")
+btn.addEventListener("click",function(){
+    check(this)
+    checkwin1(this)
+    checkwin2(this)
+  })
+ listBrand[i].push(btn)
 }
-document.write("<br>")
+
+console.log(listBrand[1])
 // btn.classList.add("row")
 }
+
+for(i=0;i<listBrand.length;i++){
+  for(j=0;j<listBrand[i].length;j++){
+    document.body.appendChild(listBrand[i][j])
+  
+  }
+
+document.write("<br>")
+}
+console.log(listBrand)
 function check(playtic){
+
     if(clickcount%2==0){
      playtic.innerText="O"
      playtic.classList.add("obtn")
      playtic.classList.add("background1")
-     
-        }
+          }
         else{
             playtic.innerText="X"
             playtic.classList.add("xbtn")
             playtic.classList.add("background2")
         }
-     playtic.setAttribute("disabled","disabled")//vo_hieu_hoa_nut_do class.setAttribute(name,value),
+     
         clickcount++
-    }
+       playtic.setAttribute("disabled","disabled")//vo_hieu_hoa_nut_do class.setAttribute(name,value),
+       var check=document.getElementById("obtn")
+       if(listBrand[0][0]=listBrand[0][1]=check){
+    alert("Win")
+  }
+      
+      }
     if(clickcount==16){
       alert("Game is finish")
     }
-//     function resetGame(){
-// if(!confirm("Do you want to reset the game?")){
-//   return;
-// }
-// else{
-//   playtic.innerText=""
-//   let btns=document.getElementsByClassName()
-//   for(const element in )
-//   playtic.classList.remove("obtn");
-//   playtic.classList.remove("xbtn");
-//   playtic.classList.remove("background1");
-//   playtic.classList.remove("background2");
-//   clickcount=0;
-// }
-//     }
-
-
+    function resetGame(){
+if(!confirm("Do you want to reset the game?")){
+  return;
+}
+else{
+  let btns=document.getElementsByClassName("playtic");
+            for(const element of btns){
+                element.innerText=" ";
+                element.classList.remove("obtn")
+                element.classList.remove("xbtn")
+                element.removeAttribute("disabled")
+                element.classList.remove("background1")
+                element.classList.remove("background2")
+            }
+            clickcount=0;
+        }
+  
+  }
+  
+  function checkwin1(playtic){
+   var i=0;
+    var j=0;
+    console.log(i,j)
+   var btn1=document.getElementsByClassName("playtic")
+    for(const element of btn1 ){
+        var u=element.classList.contains("obtn")
+        var v=element.classList.contains("xbtn")
+      checko[i][j]=u;
+        checkx[i][j]=v;
+      j++
+      console.log(checkx);
+      console.log(checko);
+        if(j==4&&i==4){
+          i=0
+          j=0
+        }
+        else if(j==4){
+    i++
+    j=0;
+  }
+ 
+ 
+  }}
+  function checkwin2(playtic){
+    debugger;
+    for(i=0;i<listBrand.length;i++){
+  for(j=0;j<listBrand[i].length;j++){
+    if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
+    (checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true))
+    { 
+      
+    window.location.href="OIP.jpg"
+      break;
+      }
+     else if ((checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true) ||
+    (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true))
+    { 
+      
+    window.location.href="OIP.jpg"
+      break;
+      }
+      else if ((checko[i][j] === true) && (checko[i+1][j+1] === true) && (checko[i+2][j+2] === true) ||
+    (checkx[i][j] === true) && (checkx[i+1][j+1] === true) && (checkx[i+2][j+2] === true))
+    { 
+      
+    window.location.href="OIP.jpg"
+      break;
+      }
+     
+}
+}
+} 
 </script>

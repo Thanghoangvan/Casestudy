@@ -42,7 +42,9 @@ function changeBack(){
   for(let count=1;count<15;count++){
   createCircle()
   }
-  
+
   }
-  setTimeout(alert,5)
+  setTimeout(alert,100)
+
+
   
