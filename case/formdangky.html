@@ -8,9 +8,8 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  
     <div class="login">
-        <h1>Đăng nhập</h1>
+        <h1>Đăng Ký</h1>
         <p>Vui lòng nhập thông tin để đăng ký</p>
         <hr>
         <label for="username">Tên đăng nhập</label>
@@ -20,25 +19,19 @@
         <label for="password-repeat"><b>Nhập lại mật khẩu</b></label>
         <input type="password" placeholder="******" name="password-repeat" id="password-repeat">
         <br>
+        <p>Bạn đã có tài khoản?<a href="form.html">#Đăng Nhập</a></p>
         <p>Có bất cứ thắc mắc nào liên hệ với đội ngũ chúng tôi<a href="#">##Win</p>
             <button type="submit" class="submit" onclick="login()">Đăng nhập</button>
     </div>
 
-
 </body>
 </html>
 <script>
-     function login(){
-        debugger;
-    let u=document.getElementById("username").value;
-    let pass=document.getElementById("password").value;
-    let passr=document.getElementById("password-repeat").value;
-    if(u==""||pass==""||passr==""){
-        alert("Please enter the detail");
-     return ;
+    let u=document.getElementById("username");
+    let v=document.getElementById("password");
+    let v1=document.getElementById("password-repeat");
+    if(u=="" ||v==""|| v1==""){
+alert("PLease enter the details")
     }
-    else if(u!==""&&pass!==""&& passr!==""&&pass==passr){
-        alert("Login sucessfully")
-        window.location.href="caro1.html"
-    }}
+
 </script>

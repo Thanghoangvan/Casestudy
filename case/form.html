@@ -30,12 +30,17 @@
 <script>
      function login(){
         debugger;
+    
     let u=document.getElementById("username").value;
+   
     let pass=document.getElementById("password").value;
     let passr=document.getElementById("password-repeat").value;
     if(u==""||pass==""||passr==""){
-        alert("Please enter the detail");
+        alert("Please enter the details");
      return ;
+    }
+    else if(u!==""&&pass!==""&& passr!==""&&pass!==passr){
+        alert("Please enter the password again")
     }
     else if(u!==""&&pass!==""&& passr!==""&&pass==passr){
         alert("Login sucessfully")
