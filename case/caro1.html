@@ -8,15 +8,13 @@
     <link href="tictactoe.css" rel="stylesheet">
   <script src="caro2.js"></script>
 </head>
-
+<canvas  id="mycanvas" height="100px" width="400px" style="border:1px solid"></canvas>
 <body class="body" id="body">
-  <canvas id="mycanvas" height="100px" width="400px" style="border:1px solid"></canvas>
 <div class="title" id="title1" onmouseover="changeBack()">Tic Tac Toe Game</div>
 <div class="reset">
     <button class="reset1" onclick="resetGame()" id="01">Start</button>
     <p id="P1"></p>
-   <!-- <img src="player1.png" height="100px" width="100px">
-   <img src="player3.png"height="100px" width="100px" > -->
+  
 </div>
 </body>
 </html>
@@ -32,36 +30,35 @@
   var checko= [[],[],[],[],]
   
 
-for (let i = 0; i <listBrand.length; ++i) {
-    for(let j=0;j<4;j++){
-  var btn = document.createElement('button');
-  
- btn.classList.add("playtic")
-btn.addEventListener("click",function(){
-    check(this)
-    checkwin1(this)
-    checkwin2(this)
-  })
- listBrand[i].push(btn)
-}
-
-console.log(listBrand[1])
-// btn.classList.add("row")
-}
-
-for(i=0;i<listBrand.length;i++){
-  debugger;
-  for(j=0;j<listBrand[i].length;j++){
-    document.body.appendChild(listBrand[i][j])
-  
+  function createelement(start){
+ 
+ for (let i = 0; i <listBrand.length; i++) {
+     for(let j=0;j<start;j++){
+   var btn = document.createElement('button');
+   btn.classList.add("playtic")
+   btn.addEventListener("click",function(){
+     check(this)
+     checkwin1(this)
+     checkwin2(this)
+   })
+  listBrand[i].push(btn)
+ }
+ console.log(listBrand[1])
+ }
+ return listBrand;
   }
-
-document.write("<br>")
-}
-console.log(listBrand)
+function button(){
+var button1=createelement(4)
+ console.log(button1)
+ for(i=0;i<listBrand.length;i++){
+   for(j=0;j<listBrand[i].length;j++){
+  document.body.appendChild(listBrand[i][j])}
+   document.write("<br>")
+ }
+ }
+ button()
 function check(playtic){
-
-    if(clickcount%2==0){
+   if(clickcount%2==0){
      playtic.innerText="O"
      playtic.classList.add("obtn")
      playtic.classList.add("background1")
@@ -127,26 +124,15 @@ else{
       j++
       console.log(checkx);
       console.log(checko);
-        if(j==4&&i==4){
-          i=0
-          j=0
-        }
-        else if(j==4){
+       if(j==4){
     i++
     j=0;
   }
- 
- 
-  }}
-  
- 
-
-  function checkwin2(playtic){
-
-    for(i=0;i<listBrand.length;i++){
+ }
+}
+   function checkwin2(playtic){
+ for(i=0;i<listBrand.length;i++){
   for(j=0;j<listBrand[i].length;j++){
-
-
 if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
     (checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true)||
     (checko[i][j]===true)   && (checko[i+1][j+1]===true) && (checko[i+2][j+2]===true)||
@@ -154,7 +140,7 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
     { 
       counto++
       if(counto==2){
-        window.location.href="OIP.jpg"
+        window.location.href="player1.jpg"
         break;
       } const para = document.createElement("p");
       const node = document.createTextNode("The player 1 win game "+counto);
@@ -170,21 +156,17 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
     { 
       countx++
       if(countx==2){
-        window.location.href="OIP.jpg"
+        window.location.href="player2.jpg"
         break;
       }
-      const para = document.createElement("p");
-      const node = document.createTextNode("The player 2 win game "+counto);
-       para.appendChild(node);
-       document.getElementById("P1").appendChild(para);
-      
-     reset()
-      
-
-
-   break;
+      const para=document.createElement("para");
+      const node=document.createTextNode("The player 1 win game "+ countx);
+      para.appendChild(node)
+      document.getElementById("P1").appendChild(para);
+      reset()
       }
-  
-      }}}
+  } 
+ }
+}
      
 </script>
