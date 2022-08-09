@@ -8,35 +8,46 @@
     <link href="tictactoe.css" rel="stylesheet">
   <script src="caro2.js"></script>
 </head>
-<canvas  id="mycanvas" height="100px" width="400px" style="border:1px solid"></canvas>
+
 <body class="body" id="body">
+  <canvas id="mycanvas" height="100px" width="400px" style="border:1px solid"></canvas>
 <div class="title" id="title1" onmouseover="changeBack()">Tic Tac Toe Game</div>
 <div class="reset">
     <button class="reset1" onclick="resetGame()" id="01">Start</button>
     <p id="P1"></p>
-  
+  <audio autoplay >
+    <source src="music.mp3">
+  </audio>
 </div>
 </body>
 </html>
 <script>
- 
-   let clickcount=0;
-   let count=0;
+let username=localStorage.getItem("username")
+console.log(username)
+  let clickcount=0;
+  let count=0;
   let count1=0;
   let counto=0;
   let countx=0;
   var listBrand = [[],[],[],[],]
   var checkx= [[],[],[],[],]
   var checko= [[],[],[],[],]
-  
+  function welcome(){
+    const para = document.createElement("p");
+    const node = document.createTextNode("Welcome "+username);
+     para.appendChild(node);
+    para.classList.add("Title")
+      document.getElementById("P1").appendChild(para);
+  }
+  welcome()
 
   function createelement(start){
- 
  for (let i = 0; i <listBrand.length; i++) {
      for(let j=0;j<start;j++){
    var btn = document.createElement('button');
-   btn.classList.add("playtic")
-   btn.addEventListener("click",function(){
+   
+  btn.classList.add("playtic")
+ btn.addEventListener("click",function(){
      check(this)
      checkwin1(this)
      checkwin2(this)
@@ -47,23 +58,25 @@
  }
  return listBrand;
   }
-function button(){
-var button1=createelement(4)
+    function button(){
+     debugger;
+ var button1=createelement(4)
  console.log(button1)
  for(i=0;i<listBrand.length;i++){
+   debugger;
    for(j=0;j<listBrand[i].length;j++){
-  document.body.appendChild(listBrand[i][j])}
+     document.body.appendChild(listBrand[i][j])}
    document.write("<br>")
  }
  }
  button()
 function check(playtic){
-   if(clickcount%2==0){
+if(clickcount%2==0){
      playtic.innerText="O"
      playtic.classList.add("obtn")
      playtic.classList.add("background1")
           }
-        else{
+else{
             playtic.innerText="X"
             playtic.classList.add("xbtn")
             playtic.classList.add("background2")
@@ -75,8 +88,7 @@ function check(playtic){
        if(listBrand[0][0]=listBrand[0][1]=check){
     alert("Win")
   }
-      
-      }
+}
     if(clickcount==16){
       alert("Game is finish")
     }
@@ -110,7 +122,6 @@ else{
             }
             clickcount=0;
         }
-  
   function checkwin1(playtic){
    var i=0;
     var j=0;
@@ -124,15 +135,19 @@ else{
       j++
       console.log(checkx);
       console.log(checko);
-       if(j==4){
+        if(j==4&&i==4){
+          i=0
+          j=0
+        }
+        else if(j==4){
     i++
     j=0;
   }
  }
 }
    function checkwin2(playtic){
- for(i=0;i<listBrand.length;i++){
-  for(j=0;j<listBrand[i].length;j++){
+for(i=0;i<listBrand.length;i++){
+for(j=0;j<listBrand[i].length;j++){
 if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
     (checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true)||
     (checko[i][j]===true)   && (checko[i+1][j+1]===true) && (checko[i+2][j+2]===true)||
@@ -155,18 +170,19 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
     (checkx[i][j] === true) && (checkx[i+1][j-1] === true) && (checkx[i+2][j-2] === true))
     { 
       countx++
-      if(countx==2){
+       if(countx==2){
         window.location.href="player2.jpg"
         break;
       }
-      const para=document.createElement("para");
-      const node=document.createTextNode("The player 1 win game "+ countx);
-      para.appendChild(node)
-      document.getElementById("P1").appendChild(para);
-      reset()
+      const para = document.createElement("p");
+      const node = document.createTextNode("The player 2 win game "+counto);
+       para.appendChild(node);
+       document.getElementById("P1").appendChild(para);
+      
+     reset()
       }
-  } 
- }
+  }
+}
 }
      
 </script>

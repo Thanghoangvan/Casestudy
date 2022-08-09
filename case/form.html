@@ -14,14 +14,14 @@
         <p>Vui lòng nhập thông tin để đăng ký</p>
         <hr>
         <label for="username">Tên đăng nhập</label>
-        <input type="text" placeholder="Họ Và Tên" id="username">
+        <input type="text" placeholder="Họ Và Tên" id="username" class="username">
         <label for="password"><b>Mật khẩu</b></label>
         <input type="password" placeholder="******" name="password" id="password">
         <label for="password-repeat"><b>Nhập lại mật khẩu</b></label>
         <input type="password" placeholder="******" name="password-repeat" id="password-repeat">
         <br>
         <p>Có bất cứ thắc mắc nào liên hệ với đội ngũ chúng tôi<a href="#">##Win</p>
-            <button type="submit" class="submit" onclick="login()">Đăng nhập</button>
+            <button type="submit" class="submit" onclick="login()" >Đăng nhập</button>
     </div>
 
 
@@ -32,7 +32,6 @@
         debugger;
     
     let u=document.getElementById("username").value;
-   
     let pass=document.getElementById("password").value;
     let passr=document.getElementById("password-repeat").value;
     if(u==""||pass==""||passr==""){
@@ -45,5 +44,12 @@
     else if(u!==""&&pass!==""&& passr!==""&&pass==passr){
         alert("Login sucessfully")
         window.location.href="caro1.html"
-    }}
+    }
+    localStorage.setItem("username", u)
+     }
+   
+       
+       
+    
+
 </script>
