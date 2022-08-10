@@ -10,7 +10,7 @@
 </head>
 
 <body class="body" id="body">
-  <canvas id="mycanvas" height="100px" width="400px" style="border:1px solid"></canvas>
+  <canvas id="mycanvas" height="100px" width="400px" style="border:1px solid rgba(3, 15, 99, 0.795)"></canvas>
 <div class="title" id="title1" onmouseover="changeBack()">Tic Tac Toe Game</div>
 <div class="reset">
     <button class="reset1" onclick="resetGame()" id="01">Start</button>
@@ -22,16 +22,15 @@
 </body>
 </html>
 <script>
-let username=localStorage.getItem("username")
-console.log(username)
+  let username=localStorage.getItem("username")
   let clickcount=0;
   let count=0;
   let count1=0;
   let counto=0;
   let countx=0;
-  var listBrand = [[],[],[],[],]
-  var checkx= [[],[],[],[],]
-  var checko= [[],[],[],[],]
+  var listBrand = [[],[],[],[],];
+  var checkx= [[],[],[],[],];
+  var checko= [[],[],[],[],];
   function welcome(){
     const para = document.createElement("p");
     const node = document.createTextNode("Welcome "+username);
@@ -40,8 +39,7 @@ console.log(username)
       document.getElementById("P1").appendChild(para);
   }
   welcome()
-
-  function createelement(start){
+ function createelement(start){
  for (let i = 0; i <listBrand.length; i++) {
      for(let j=0;j<start;j++){
    var btn = document.createElement('button');
@@ -54,50 +52,44 @@ console.log(username)
    })
   listBrand[i].push(btn)
  }
- console.log(listBrand[1])
+
  }
  return listBrand;
   }
-    function button(){
-     debugger;
+function button(){
  var button1=createelement(4)
- console.log(button1)
- for(i=0;i<listBrand.length;i++){
-   debugger;
-   for(j=0;j<listBrand[i].length;j++){
-     document.body.appendChild(listBrand[i][j])}
-   document.write("<br>")
+  for(i=0;i<listBrand.length;i++){
+  for(j=0;j<listBrand[i].length;j++){
+  document.body.appendChild(listBrand[i][j])}
+  document.write("<br>")
  }
- }
- button()
+}
+button()
 function check(playtic){
+  debugger;
 if(clickcount%2==0){
      playtic.innerText="O"
      playtic.classList.add("obtn")
      playtic.classList.add("background1")
-          }
+   }
 else{
-            playtic.innerText="X"
-            playtic.classList.add("xbtn")
-            playtic.classList.add("background2")
-        }
-     
-        clickcount++
-       playtic.setAttribute("disabled","disabled")//vo_hieu_hoa_nut_do class.setAttribute(name,value),
-       var check=document.getElementById("obtn")
-       if(listBrand[0][0]=listBrand[0][1]=check){
-    alert("Win")
+     playtic.innerText="X"
+     playtic.classList.add("xbtn")
+     playtic.classList.add("background2")
+   }
+    clickcount++
+    playtic.setAttribute("disabled","disabled")//vo_hieu_hoa_nut_do class.setAttribute(name,value),
+  
+  if(clickcount==16){
+  resetGame()
   }
-}
-    if(clickcount==16){
-      alert("Game is finish")
-    }
-    function resetGame(){
+}  
+ function resetGame(){
 if(!confirm("Do you want to reset the game?")){
   return;
 }
 else{
-  let btns=document.getElementsByClassName("playtic");
+    let btns=document.getElementsByClassName("playtic");
             for(const element of btns){
                 element.innerText=" ";
                 element.classList.remove("obtn")
@@ -108,7 +100,6 @@ else{
             }
             clickcount=0;
         }
-  
   }
   function reset(){
     let btns=document.getElementsByClassName("playtic");
@@ -131,15 +122,9 @@ else{
         var u=element.classList.contains("obtn")
         var v=element.classList.contains("xbtn")
       checko[i][j]=u;
-        checkx[i][j]=v;
+      checkx[i][j]=v;
       j++
-      console.log(checkx);
-      console.log(checko);
-        if(j==4&&i==4){
-          i=0
-          j=0
-        }
-        else if(j==4){
+    if(j==4){
     i++
     j=0;
   }
@@ -160,31 +145,27 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
       } const para = document.createElement("p");
       const node = document.createTextNode("The player 1 win game "+counto);
        para.appendChild(node);
-      
-       document.getElementById("P1").appendChild(para);
+      document.getElementById("P1").appendChild(para);
      reset()
       break;
       }
-      if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true) ||
+else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true) ||
     (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true)||
     (checkx[i][j]===true)   && (checkx[i+1][j+1]===true) && (checkx[i+2][j+2]===true)||
     (checkx[i][j] === true) && (checkx[i+1][j-1] === true) && (checkx[i+2][j-2] === true))
     { 
       countx++
-       if(countx==2){
+      if(countx==2){
         window.location.href="player2.jpg"
         break;
       }
       const para = document.createElement("p");
-      const node = document.createTextNode("The player 2 win game "+counto);
-       para.appendChild(node);
-      
-       document.getElementById("P1").appendChild(para);
-      
-     reset()
+      const node = document.createTextNode("The player 2 win game "+countx);
+      para.appendChild(node);
+      document.getElementById("P1").appendChild(para);
+    reset()
       }
   }
 }
 }
-     
 </script>

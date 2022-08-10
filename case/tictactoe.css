@@ -16,12 +16,12 @@
     align-items: stretch;
 }
 .playtic{
-flex-grow: 1;
-margin: 5px;
-font-size: 5em;
-font-weight: bold;
-width: 90px;
-height: 90px;
+    flex-grow: 1;
+    margin: 4px;
+    font-size: 5em;
+    font-weight: bold;
+    width: 90px;
+    height: 90px;
 
 }
 .title{
@@ -30,8 +30,9 @@ height: 90px;
     color: aqua;
     width: 250px;
 }
+
 .reset{
-margin-left: 400px;
+margin-left: 350px;
 }
 .xbtn{
     color: brown;
@@ -68,3 +69,9 @@ height: 100px;
 padding-top: 40px;
 
 }
+body{
+    user-select: none;
+background-image: url("background1.jpg");
+font-family:"lobster",cursive;
+}
+
