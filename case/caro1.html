@@ -9,7 +9,7 @@
   <script src="caro2.js"></script>
 </head>
 
-<body class="body" id="body">
+<body class="body" id="body" >
   <canvas id="mycanvas" height="100px" width="400px" style="border:1px solid rgba(3, 15, 99, 0.795)"></canvas>
 <div class="title" id="title1" onmouseover="changeBack()">Tic Tac Toe Game</div>
 <div class="reset">
@@ -18,10 +18,16 @@
   <audio autoplay >
     <source src="music.mp3">
   </audio>
+  <div class="result" id="result">
+    <img src="player1.jpg">
+   <button class="button" onclick="buttonstart()">Restart the game</button>
+  </div>
+
 </div>
 </body>
 </html>
 <script>
+   const list=document.getElementById("P1")
   let username=localStorage.getItem("username")
   let clickcount=0;
   let count=0;
@@ -98,10 +104,13 @@ else{
                 element.classList.remove("background1")
                 element.classList.remove("background2")
             }
+            list.removeChild(list.lastElementChild)
             clickcount=0;
+            counto=countx=0;
         }
   }
   function reset(){
+    debugger;
     let btns=document.getElementsByClassName("playtic");
             for(const element of btns){
                 element.innerText=" ";
@@ -111,8 +120,26 @@ else{
                 element.classList.remove("background1")
                 element.classList.remove("background2")
             }
+           
+           
             clickcount=0;
         }
+        function reset1(){
+    debugger;
+    let btns=document.getElementsByClassName("playtic");
+            for(const element of btns){
+                element.innerText=" ";
+                element.classList.remove("obtn")
+                element.classList.remove("xbtn")
+                element.removeAttribute("disabled")
+                element.classList.remove("background1")
+                element.classList.remove("background2")
+            }
+           
+           list.removeChild(list.lastElementChild)
+           list.removeChild(list)
+            clickcount=0; 
+          }
   function checkwin1(playtic){
    var i=0;
     var j=0;
@@ -131,6 +158,7 @@ else{
  }
 }
    function checkwin2(playtic){
+debugger;
 for(i=0;i<listBrand.length;i++){
 for(j=0;j<listBrand[i].length;j++){
 if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
@@ -140,7 +168,8 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
     { 
       counto++
       if(counto==2){
-        window.location.href="player1.jpg"
+      document.getElementsByClassName("result")[0].style.display="flex";
+      counto=0;
         break;
       } const para = document.createElement("p");
       const node = document.createTextNode("The player 1 win game "+counto);
@@ -156,7 +185,8 @@ else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2]
     { 
       countx++
       if(countx==2){
-        window.location.href="player2.jpg"
+      document.getElementsByClassName("result")[0].style.display="flex";
+      countx=0;
         break;
       }
       const para = document.createElement("p");
@@ -166,6 +196,11 @@ else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2]
     reset()
       }
   }
-}
+}}
+
+function buttonstart(){
+    document.getElementsByClassName("result")[0].style.display = "none";
+ 
+    reset1();
 }
 </script>
