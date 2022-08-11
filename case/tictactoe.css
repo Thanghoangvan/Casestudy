@@ -1,5 +1,4 @@
 .body {
-    /* background-color: red; */
     width: 1000px;
     height: 900px;
     margin: auto;
@@ -9,7 +8,7 @@
 .row {
     display: flex;
     flex-grow: 1;
-    /* background-color: blue; */
+ 
 }
 
 .gameboard {
