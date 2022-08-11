@@ -22,7 +22,10 @@
     <img src="player1.jpg">
    <button class="button" onclick="buttonstart()">Restart the game</button>
   </div>
-
+  <div class="result1" id="result1">
+    <img src="player2.jpg">
+   <button class="button" onclick="buttonstart()">Restart the game</button>
+  </div>
 </div>
 </body>
 </html>
@@ -34,7 +37,7 @@
   let count1=0;
   let counto=0;
   let countx=0;
-  var listBrand = [[],[],[],[],];
+  var listBrand = [[],[],[],[]];
   var checkx= [[],[],[],[],];
   var checko= [[],[],[],[],];
   function welcome(){
@@ -85,66 +88,51 @@ else{
    }
     clickcount++
     playtic.setAttribute("disabled","disabled")//vo_hieu_hoa_nut_do class.setAttribute(name,value),
-  
-  if(clickcount==16){
+if(clickcount==16){
   resetGame()
   }
-}  
+  }  
+  function buttonstart(){
+    document.getElementsByClassName("result")[0].style.display = "none";
+    document.getElementsByClassName("result1")[0].style.display="none"
+    reset1();
+}
+function resetT(){
+  let btns=document.getElementsByClassName("playtic");
+            for(const element of btns){
+                element.innerText=" ";
+                element.classList.remove("obtn")
+                element.classList.remove("xbtn")
+                element.removeAttribute("disabled")
+                element.classList.remove("background1")
+                element.classList.remove("background2")
+    }
+  }
  function resetGame(){
 if(!confirm("Do you want to reset the game?")){
   return;
 }
 else{
-    let btns=document.getElementsByClassName("playtic");
-            for(const element of btns){
-                element.innerText=" ";
-                element.classList.remove("obtn")
-                element.classList.remove("xbtn")
-                element.removeAttribute("disabled")
-                element.classList.remove("background1")
-                element.classList.remove("background2")
-            }
-            list.removeChild(list.lastElementChild)
-            clickcount=0;
-            counto=countx=0;
+   resetT()
+  clickcount=0;
+  counto=countx=0;
         }
   }
   function reset(){
-    debugger;
-    let btns=document.getElementsByClassName("playtic");
-            for(const element of btns){
-                element.innerText=" ";
-                element.classList.remove("obtn")
-                element.classList.remove("xbtn")
-                element.removeAttribute("disabled")
-                element.classList.remove("background1")
-                element.classList.remove("background2")
-            }
-           
-           
+   resetT()
             clickcount=0;
-        }
-        function reset1(){
-    debugger;
-    let btns=document.getElementsByClassName("playtic");
-            for(const element of btns){
-                element.innerText=" ";
-                element.classList.remove("obtn")
-                element.classList.remove("xbtn")
-                element.removeAttribute("disabled")
-                element.classList.remove("background1")
-                element.classList.remove("background2")
-            }
-           
-           list.removeChild(list.lastElementChild)
-           list.removeChild(list)
-            clickcount=0; 
-          }
+  }
+  function reset1(){
+  resetT()
+  while(list.children.length>=2){
+    list.removeChild(list.lastElementChild)
+    }
+  clickcount=0; 
+  }
   function checkwin1(playtic){
-   var i=0;
-    var j=0;
-    console.log(i,j)
-   var btn1=document.getElementsByClassName("playtic")
+  var i=0;
+  var j=0;
+  var btn1=document.getElementsByClassName("playtic")
     for(const element of btn1 ){
         var u=element.classList.contains("obtn")
         var v=element.classList.contains("xbtn")
@@ -162,8 +150,8 @@ debugger;
 for(i=0;i<listBrand.length;i++){
 for(j=0;j<listBrand[i].length;j++){
 if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
-    (checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true)||
-    (checko[i][j]===true)   && (checko[i+1][j+1]===true) && (checko[i+2][j+2]===true)||
+    (checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true) ||
+    (checko[i][j]===true)   && (checko[i+1][j+1]===true) && (checko[i+2][j+2]===true) ||
     (checko[i][j] === true) && (checko[i+1][j-1] === true) && (checko[i+2][j-2] === true))
     { 
       counto++
@@ -171,36 +159,33 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
       document.getElementsByClassName("result")[0].style.display="flex";
       counto=0;
         break;
-      } const para = document.createElement("p");
-      const node = document.createTextNode("The player 1 win game "+counto);
-       para.appendChild(node);
+      } 
+      const para = document.createElement("p");
+      const node = document.createTextNode("The player 1 wins game "+counto);
+      para.appendChild(node);
       document.getElementById("P1").appendChild(para);
-     reset()
-      break;
-      }
+      reset()
+    }
 else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true) ||
-    (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true)||
-    (checkx[i][j]===true)   && (checkx[i+1][j+1]===true) && (checkx[i+2][j+2]===true)||
+    (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true) ||
+    (checkx[i][j]===true)   && (checkx[i+1][j+1]===true) && (checkx[i+2][j+2]===true) ||
     (checkx[i][j] === true) && (checkx[i+1][j-1] === true) && (checkx[i+2][j-2] === true))
     { 
       countx++
       if(countx==2){
-      document.getElementsByClassName("result")[0].style.display="flex";
+      document.getElementsByClassName("result1")[0].style.display="flex";
       countx=0;
         break;
       }
       const para = document.createElement("p");
-      const node = document.createTextNode("The player 2 win game "+countx);
+      const node = document.createTextNode("The player 2 wins game "+countx);
       para.appendChild(node);
       document.getElementById("P1").appendChild(para);
-    reset()
+      reset()
       }
   }
-}}
-
-function buttonstart(){
-    document.getElementsByClassName("result")[0].style.display = "none";
- 
-    reset1();
 }
+}
+
+
 </script>
