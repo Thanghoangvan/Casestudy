@@ -97,8 +97,8 @@ body {
     top: 0;
     left: 0;
     display: none;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* can_chinh_theo_chieu_doc */
+    align-items: center; /*can_chinh_theo_chieu_ngang*/
     flex-direction: column;
 
 }
@@ -113,7 +113,7 @@ body {
     background-color: rgba(0, 0, 255, 0.096) ;
     top: 0;
     left:0;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     flex-direction: column;
     display: none;
