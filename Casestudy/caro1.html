@@ -50,16 +50,15 @@
   welcome()
  function createelement(start){
  for (let i = 0; i <listBrand.length; i++) {
-     for(let j=0;j<start;j++){
+  for(let j=0;j<start;j++){
    var btn = document.createElement('button');
-   
-  btn.classList.add("playtic")
- btn.addEventListener("click",function(){//Themsukienaddeventlistener(event,function)
+   btn.classList.add("playtic")
+   btn.addEventListener("click",function(){//Themsukienaddeventlistener(event,function)
      check(this)
      checkwin1(this)
      checkwin2(this)
    })
-  listBrand[i].push(btn)
+  listBrand[i].push(btn);
   }
 }
  return listBrand;
@@ -69,7 +68,7 @@ function button(){
   for(i=0;i<listBrand.length;i++){
   for(j=0;j<listBrand[i].length;j++){
   document.body.appendChild(listBrand[i][j])}
-  document.write("<br>")
+  document.write("<br>");
  }
 }
 button()
