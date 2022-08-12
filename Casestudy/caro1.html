@@ -112,11 +112,11 @@ function resetGame(){
   return;
 }
  else{
-   resetT()
-  clickcount=0;
-  counto=countx=0;
-        }
-  }
+   reset()
+   clickcount=0;
+
+ }
+}
 function reset(){
   resetT()
   clickcount=0;
@@ -146,6 +146,7 @@ function checkwin1(playtic){
  }
 }
 function checkwin2(playtic){
+  debugger;
 for(i=0;i<listBrand.length;i++){
  for(j=0;j<listBrand[i].length;j++){
   if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
