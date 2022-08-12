@@ -120,8 +120,7 @@ function resetGame(){
 function reset(){
   resetT()
   clickcount=0;
-  counto=countx=0;
-  }
+}
   function reset1(){
   resetT()
   while(list.children.length>=2){
@@ -156,16 +155,17 @@ if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === 
     (checko[i][j] === true) && (checko[i+1][j-1] === true) && (checko[i+2][j-2] === true))
     { 
     counto++
-    if(counto==2){
-      document.getElementsByClassName("result")[0].style.display="flex";
-      counto=0;
-      break;
-      } 
+    
       const para=document.createElement("p")
       const node = document.createTextNode("The player 1 wins game "+counto);
       para.appendChild(node);
       document.getElementById("P1").appendChild(para)
       reset()
+      if(counto==2){
+      document.getElementsByClassName("result")[0].style.display="flex";
+      counto=0;
+      break;
+      } 
     }
 else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true) ||
         (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true) ||
@@ -173,16 +173,16 @@ else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2]
         (checkx[i][j] === true) && (checkx[i+1][j-1] === true) && (checkx[i+2][j-2] === true))
     { 
       countx++
+      const para=document.createElement("p")
+      const node = document.createTextNode("The player 2 wins game "+countx);
+      para.appendChild(node);
+      document.getElementById("P1").appendChild(para)
+      reset()
       if(countx==2){
       document.getElementsByClassName("result1")[0].style.display="flex";
       countx=0;
         break;
       }
-      const para=document.createElement("p")
-      const node = document.createTextNode("The player 2 wins game "+countx);
-      para.appendChild(node);
-      document.getElementById("P1").appendChild(para)
-        reset()
       }
     }
   }
