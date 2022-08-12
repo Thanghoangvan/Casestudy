@@ -35,17 +35,19 @@
     let pass=document.getElementById("password").value;
     let passr=document.getElementById("password-repeat").value;
     if(u==""||pass==""||passr==""){
-        alert("Please enter the details");//khikonhapj
+        alert("Please enter the details");//while user don't enter enough information
      return ;
     }
     else if(u!==""&&pass!==""&& passr!==""&&pass!==passr){
-        alert("Please enter the password again")//khinhapsaimk
+        alert("Please enter the password again")//while user enter the wrong password
     }
-    else if(u!==""&&pass!==""&& passr!==""&&pass==passr){
+    else if(u!==""&&pass!==""&& passr!==""&&pass==passr){ 
         alert("Login sucessfully")
         window.location.href="caro1.html"
     }
-localStorage.setItem("username", u)
+    localStorage.setItem("username", u);
+    //Store the information with no end date
+    //localStorage.setItem(key, valuable)
      }
 </script>
 

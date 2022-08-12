@@ -97,8 +97,8 @@ if(clickcount==16){
     reset1();
 }
 function resetT(){
-  let btns=document.getElementsByClassName("playtic");
-            for(const element of btns){
+  let btns=document.getElementsByClassName("playtic");//Tim_kiem_phan_tu_button
+            for(const element of btns){  //Vong_lap_cac_phan_tu_cua_btns
                 element.innerText=" ";
                 element.classList.remove("obtn")
                 element.classList.remove("xbtn")
@@ -145,48 +145,44 @@ function checkwin1(playtic){
   }
  }
 }
-   function checkwin2(playtic){
-debugger;
+function checkwin2(playtic){
 for(i=0;i<listBrand.length;i++){
-for(j=0;j<listBrand[i].length;j++){
-if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
+ for(j=0;j<listBrand[i].length;j++){
+  if ((checko[i][j] === true) && (checko[i][j+1] === true) && (checko[i][j+2] === true) ||
     (checko[i][j] === true) && (checko[i+1][j] === true) && (checko[i+2][j] === true) ||
     (checko[i][j]===true)   && (checko[i+1][j+1]===true) && (checko[i+2][j+2]===true) ||
     (checko[i][j] === true) && (checko[i+1][j-1] === true) && (checko[i+2][j-2] === true))
     { 
     counto++
-    
       const para=document.createElement("p")
       const node = document.createTextNode("The player 1 wins game "+counto);
       para.appendChild(node);
       document.getElementById("P1").appendChild(para)
       reset()
       if(counto==2){
-      document.getElementsByClassName("result")[0].style.display="flex";
+      document.getElementsByClassName("result")[0].style.display="flex";//Tim_kiem_phan_tu_dau_tien_cua_class_result
       counto=0;
       break;
       } 
     }
-else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true) ||
+  else if ((checkx[i][j] === true) && (checkx[i][j+1] === true) && (checkx[i][j+2] === true) ||
         (checkx[i][j] === true) && (checkx[i+1][j] === true) && (checkx[i+2][j] === true) ||
         (checkx[i][j]===true)   && (checkx[i+1][j+1]===true) && (checkx[i+2][j+2]===true) ||
         (checkx[i][j] === true) && (checkx[i+1][j-1] === true) && (checkx[i+2][j-2] === true))
     { 
       countx++
-      const para=document.createElement("p")
+      const para=document.createElement("p")  
       const node = document.createTextNode("The player 2 wins game "+countx);
       para.appendChild(node);
       document.getElementById("P1").appendChild(para)
       reset()
       if(countx==2){
-      document.getElementsByClassName("result1")[0].style.display="flex";
+      document.getElementsByClassName("result1")[0].style.display="flex";//Tim_kiem_phan_tu_dau_tien_cua_class_result
       countx=0;
-        break;
+      break;
       }
       }
     }
   }
 }
-
-
 </script>
